@@ -1,0 +1,90 @@
+.tamaño1{
+    height: 70px;
+    width: 70px;
+}
+.tam-productos{
+    height: 120px;
+    width: 120px;
+}
+.cent{
+    display:flex;
+    justify-content: center;
+}
+.centrar{
+    display: flex;
+    align-items: center;
+}
+.center{
+    text-align: center;
+}
+.der{
+    float: right;
+}
+.derecha{
+    text-align: end;
+}
+.izq{
+    float: left;
+}
+.deepskyblue{
+    color:deepskyblue;
+}
+.bgblue{
+    background-color:#6495ed;
+}
+/*Menu*/
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+#header{
+    margin: auto;
+    width: 600px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul{
+    list-style: none;
+}
+.nav > li{float: left;
+
+}
+.nav li a{
+    background-color:  #6495ed;
+    color: #0a0908;
+    text-decoration: none;
+    padding: 10px 10px;
+    display: block;
+}
+.nav li a:hover{
+background-color: #5f9ea0;  
+}
+.nav li ul{
+
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+.nav li:hover > ul{
+    display: block;
+}
+.nav li ul li{
+    position: relative;
+}
+.nav li ul li ul{
+    right: -140px;
+    top: 0px;
+}
+.button{
+    display: inline-block;
+    padding: .75em 1.5em;
+    background: rgb(172, 170, 170);
+    color: black;
+    border-radius: 5em;
+    cursor: pointer;
+    text-decoration: none;
+}
+.video{
+    width: 300px;
+    height: 250px;
+}

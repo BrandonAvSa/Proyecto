@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Huerta Hernandez Eythan Ulysses">
+        <meta name="description" content="Categoria baño">
+        <link rel="stylesheet" href="proyecto.css">
+    </head>
+    <body>
+        <table border="0" ><tr><td><div id="header">
+
+            <ul class="nav">
+            
+            <li><a href=> <img src="img/Captura.PNG" class="tamaño1 "></a>
+            
+            <ul>
+            <li><a href="Index.html">+Inico</a></li>
+            <li><a href="productos.html"> +Producto </a></li>
+            
+            <li><a href="Tabla lavanderia.html">+lavanderia  </a></li>
+            
+
+            
+            <li><a href="tabla aseo general.html">+Aseo general </a></p>
+            
+            <li><a href="contacto.html">+Contacto </a></li>
+            <li><a href="Mision,Mission.html">+Mision </a></li>
+            
+            <li><a href="vision.html">+Vision </a></li>
+            <li><a href="objetivo.html">+Objetivo </a></li>
+            <li><a href="quienes somos.html">+Quienes somos? </a></li>
+            
+            
+            
+            
+            </li>
+              
+            </ul>
+            </td>
+            <td><a href="Index.html"><img src="img/logo.jpg" class="tamaño1 cent"></a></td>
+            <td><pre>                                                                                   </pre> </td>
+            <td><a href="compra.html"><img src="img/bolsita.jpg" class="tamaño1 der"></td></tr>
+        </table>
+        <hr>
+        <br>
+<table class="bgblue cent"><tr><td><video controls src="img/VID-20240621-WA0056.mp4" type="video\mp4" class="video"></video></td></tr></table>
+<table border="0" class="cent" >
+                    
+    <tr><td class="center">
+       <div >
+<img src="img/pastilla baño.jpg" alt="pastilla bsño" class="tam-productos">
+<div class="producto-nombre">Pastilla baño</div>
+<div class="producto-precio">$30.00</div>
+
+<button class="boton" onclick="agregarAlCarrito('pastilla baño', 30.00 )">Agregar al carrito</button> 
+<pre>                                                                                        </pre>
+        <td class="center"> <div class="producto">
+            <img src="img/destapa caños.jpg" alt="Destapa Caños" class="tam-productos">
+            <div class="producto-nombre">Destapa Caños</div>
+            <div class="producto-precio">$200.00</div>
+            <button class="boton" onclick="agregarAlCarrito('Destapa Caños', 200.00)">Agregar al carrito</button>
+            <pre>                                                                                        </pre>
+        </div></td>
+        <td class="center"><div class="producto">
+
+
+            <div class="producto">
+                <img src="img/cloro.jpg" alt="Cloro" class="tam-productos">
+                <div class="producto-nombre">Cloro</div>
+                <div class="producto-precio">$20.00</div>
+                <button class="boton" onclick="agregarAlCarrito('Cloro', 20.00)">Agregar al carrito</button>
+                <pre>                                                                                        </pre>
+            </div></td>
+    </tr>
+    
+</table>
+
+
+
+
+
+
+<script>
+let carrito = []; // Array para almacenar los productos en el carrito
+
+// Función para agregar un producto al carrito
+function agregarAlCarrito(nombre, precio) {
+// Verificar si el producto ya está en el carrito
+for (let i = 0; i < carrito.length; i++) {
+if (carrito[i].nombre === nombre) {
+// Si el producto ya existe, incrementar la cantidad
+carrito[i].cantidad++;
+actualizarCarrito();
+return;
+}
+}
+
+// Si el producto no existe, agregarlo al carrito
+carrito.push({
+nombre: nombre,
+precio: precio,
+cantidad: 1
+});
+
+actualizarCarrito();
+}
+
+// Función para eliminar un producto del carrito
+function eliminarDelCarrito(index) {
+carrito.splice(index, 1);
+actualizarCarrito();
+}
+
+
+
+// Función para actualizar el carrito en la interfaz
+function actualizarCarrito() {
+const carritoLista = document.getElementById('carrito-lista');
+const carritoTotal = document.getElementById('carrito-total');
+
+// Limpiar el contenido previo del carrito
+carritoLista.innerHTML = '';
+
+// Recorrer todos los productos en el carrito
+let total = 0;
+carrito.forEach((producto, index) => {
+const subtotal = producto.cantidad * producto.precio;
+total += subtotal;
+
+// Crear elementos HTML para cada producto en el carrito
+const productoHTML = `
+<div class="carrito-lista-item">
+<div>${producto.nombre} x ${producto.cantidad}</div>
+<div>$${subtotal.toFixed(2)}</div>
+<button class="boton" onclick="eliminarDelCarrito(${index})">Eliminar</button>
+
+</div>
+`;
+
+// Agregar el producto al carrito en la interfaz
+carritoLista.innerHTML += productoHTML;
+});
+
+// Mostrar el total actualizado del carrito
+carritoTotal.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+</script>
+<!-- Carrito de Compras -->
+<div class="carrito">
+<h2>Carrito de Compras</h2>
+<div class="carrito-lista" id="carrito-lista">
+<!-- Aquí se agregarán los productos del carrito dinámicamente -->
+</div>
+<div class="carrito-total" id="carrito-total">Total: $0.00</div>
+
+</div>
+</div>
+    </body>
+</html>
